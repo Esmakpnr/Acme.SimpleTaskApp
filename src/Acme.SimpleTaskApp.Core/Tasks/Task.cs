@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Timing;
+using Acme.SimpleTaskApp.Persons;
 
 namespace Acme.SimpleTaskApp.Tasks
 {
@@ -30,14 +31,18 @@ namespace Acme.SimpleTaskApp.Tasks
             State = TaskState.Open;
         }
 
-        public Task(string title, string description = null)
+        [ForeignKey(nameof(AssignedPersonId))]
+        public Person AssignedPerson { get; set; }
+        public Guid? AssignedPersonId { get; set; }
+
+        public Task(string title, string description = null, Guid? assignedPersonId = null)
             : this()
         {
             Title = title;
             Description = description;
+            AssignedPersonId = assignedPersonId;
         }
     }
-
     public enum TaskState : byte
     {
         Open = 0,
