@@ -22,7 +22,7 @@ namespace Acme.SimpleTaskApp.Web.Controllers
 		public TasksController(ITaskAppService taskAppService, ILookupAppService lookupAppService)
 		{
 			_taskAppService = taskAppService;
-
+			_lookupAppService = lookupAppService;
 		}
 
 		public async Task<ActionResult> Index(GetAllTasksInput input)
