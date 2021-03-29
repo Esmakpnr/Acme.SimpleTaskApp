@@ -29,6 +29,14 @@ namespace Acme.SimpleTaskApp.Web.Startup
                         icon: "fas fa-building",
                         permissionDependency: new SimplePermissionDependency(PermissionNames.Pages_Tenants)
                     )
+                    .AddItem(
+                new MenuItemDefinition(
+                    "YeniÜrünKaydet",
+                    L("Yeni Ürün Kaydet"),
+                    url: "Tasks",
+                    icon: "fa fa-tasks"
+                    )
+            )
                 ).AddItem(
                     new MenuItemDefinition(
                         PageNames.Users,
